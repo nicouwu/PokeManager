@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+    <style>
+        nav {
+            height: 50px;
+        }
+        body {
+            background-image: url("/images/FrenchFastJaguar-max-1mb.gif");
+            background-size: cover;
+            height: 100vh;
+        }
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            background-color: white;
+            justify-content: center;
+            max-width: 400px;
+            border: 10px solid orange;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: black;
+            /* opacity: 0.75; */
+        }
+        .image {
+            margin: 0 auto;
+            opacity: 1;
+        }
+        .details {
+            color: white;
+            border: 1px solid lightcyan;
+            padding: 30px;
+            font-size: 13px;
+        }
+        .add-button {
+            margin: 0 auto;
+        }
+        #pkmn-name {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    
+<header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/user/box">My Box</a>
+
+        <a href="">FAQ</a>
+    </nav>
+    
+</header>
+
+    <div class="card-container">
+        <div class="image">
+        <img src="<%= @pokedex[@pokenum]["img"] %>">
+        </div>
+        <div class="details">
+            <p id="pkmn-name"><%= @pokedex[@pokenum]["name"] %></p>
+            <p>Pokedex Number: <%= @pokedex[@pokenum]["num"] %></p>
+            <p>Type: <%= @pokedex[@pokenum]["type"] %></p>
+            <p>Height: <%= @pokedex[@pokenum]["height"] %></p>
+            <p>Weight: <%= @pokedex[@pokenum]["weight"] %></p>
+            <p>Weakness: <%= @pokedex[@pokenum]["weaknesses"] %></p>
+        </div>
+        <% if logged_in? %>
+        <div class="add-button">
+            <form action="/user/box" method="post">
+                <label for=""></label>
+                <button>Add to Box</button>
+            </form>
+        </div>
+        <% end %>
+    </div>
+</body>
+</html>
+
+

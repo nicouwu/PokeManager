@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PokeManager</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    header {
+      text-align: center;
+    }
+    #login {
+      font-size: 12px;
+      
+    }
+    body{
+      font-family: 'Fredoka One', cursive;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <h1><a href="/"><img src="/images/PokeManager_medium.png"></a></h1>
+  </header>
+  <% if logged_in? %>
+  
+  <%= current_user['email']%>
+
+  <form action="/session" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>logout</button>
+  </form>
+  <% end %>
+  
+  <%= yield %>
+
+</body>
+</html>

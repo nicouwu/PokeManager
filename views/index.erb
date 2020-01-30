@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PokeManager</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        
+        header {
+            font-family: 'Fredoka One', cursive;
+            /* font-family: pokemon-font; */
+            /* background-color: black; */
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: orange;
+        }
+        #login {
+            font-size: 12px;
+            
+        }
+        body {
+            margin: auto;
+            background: linear-gradient(to bottom,mistyrose, pink);
+        }
+        .container {
+            font-family: 'Fredoka One', cursive;
+            background-color: white;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-rows: auto;
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+            margin: 20px 100px 20px 100px;
+            padding: 15px;
+            box-shadow: 0 0 10px black;
+            border-radius: 15px;
+        }
+        .box {
+            display: grid;
+            flex-wrap: wrap;
+            border: 1px solid lightgray;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: lightgray;
+            box-shadow: 0 0 5px orange;
+        }
+        
+        .image:hover {
+            transform: scale(1.25);
+            
+        }
+        .image:hover img {
+            transform: scale(1.25);
+            opacity: 1;
+        }
+        .name {
+            border: 1px solid black;
+            border-radius: 10px;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            background-color: black;
+            opacity: 0.75;
+            height: 15px;
+            font-size: 12px;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+    <%# <h1><img src="https://fontmeme.com/permalink/200129/2d937a140924265cf6295135c62faae9.png" alt="pokemon-font" border="0"></h1> %>
+    
+        <% if session[:user_id].nil? %>
+        <div id="login">
+        <h2>login</h2>
+            <form action="/" method="post">
+                <label for="">email</label>
+                <input type="text" name="email">
+
+                <label for="">password</label>
+                <input type="password" name="password">
+                
+                <button>login</button>
+
+                <p>or <a href="/user/new">create new account</a></p>
+            </form>
+        </div>
+        <% end %>
+    </header>
+
+    <div class="container">
+            <% @pokedex.each_with_index do |pokemon, index| %>
+            <div class="box">
+                <a href="pokemon/<%= index %>"><img class="image" src="<%= pokemon["img"] %>"></a>
+                <p class="name"><a href="pokemon/<%= index %>"><%= pokemon["name"] %> </a></p>
+            </div>
+            <% end %>
+    </div>
+    
+</body>
+<footer>
+
+</footer>
+</html>
+

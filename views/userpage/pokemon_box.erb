@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Pokebox</title>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href=""></a>
+            <a href=""></a>
+        </nav>
+    </header>
+    <h1>My Box</h1>
+
+    <div class="box">
+        <% @pokebox.each do |pokemon| %>
+            <p><%= pokemon['name'] %></p>
+            <%# right now im pulling pokemon from table %>
+        <% end %>
+    </div>
+    
+
+</body>
+</html>

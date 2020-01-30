@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Account</title>
+    <style>
+        body {
+            background-image: url("/images/FrenchFastJaguar-max-1mb.gif");
+            background-size: cover;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction:column;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: lightgray;
+            border: 2px solid black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Account</h2>
+            <div class="box">
+                <form action="/user/new" method="post">
+                    <label for="username">username</label>
+                    <input type="text" name="email">
+                    <br>
+                    <label for="email">email</label>
+                    <input type="text" name="email">
+                    <br>
+                    <label for="password">password</label>
+                    <input type="password" name="password">
+                    <br>
+                    <button>Create</button>
+                </form>
+            </div>
+    </div>
+</body>
+</html>
