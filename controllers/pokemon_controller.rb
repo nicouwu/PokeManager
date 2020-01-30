@@ -1,19 +1,21 @@
 # get user pokemon box on user page
+
 get '/user/box' do
-    @pokebox = all_pokemon()
+    @pokebox = users_box_pokemon(current_user['id'])
+    # @pokedex = get_data()
+    # binding.pry
     erb :"userpage/pokemon_box"
 end
 
-post '/user/box' do
+post '/user/box' do 
     add_pokemon(
-      params[:name], 
-      params[:img_url], 
+      params[:pokemon_id],  
       current_user['id']
     )
     redirect "/"
     erb :"userpage/pokemon_box"
 end
-  
+
 get '/pokemon/new' do
     erb :"/pokemon/new"
 end

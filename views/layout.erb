@@ -22,10 +22,14 @@
 <body>
   <header>
   <h1><a href="/"><img src="/images/PokeManager_medium.png"></a></h1>
+
+  <nav>
+      <a href="user/box">My Box</a>
+  </nav>
   </header>
   <% if logged_in? %>
   
-  <%= current_user['email']%>
+  <%= current_user['username']%>
 
   <form action="/session" method="post">
     <input type="hidden" name="_method" value="delete">

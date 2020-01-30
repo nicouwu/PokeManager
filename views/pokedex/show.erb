@@ -75,6 +75,9 @@
             <form action="/user/box" method="post">
                 <label for=""></label>
                 <button>Add to Box</button>
+
+                <input type="hidden" name="pokemon_id" value="<%= @pokedex[@pokenum]["id"] %>">
+                
             </form>
         </div>
         <% end %>

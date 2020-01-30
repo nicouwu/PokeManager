@@ -19,8 +19,8 @@
 
     <div class="box">
         <% @pokebox.each do |pokemon| %>
-            <p><%= pokemon['name'] %></p>
-            <%# right now im pulling pokemon from table %>
+            <p><%= pokemon["name"] %></p>
+            <img src="<%= pokemon["img_url"] %>">
         <% end %>
     </div>
     

@@ -19,9 +19,7 @@ get '/' do
   erb :index
 end
 
-require_relative 'controllers/pokemon_controller.rb'
-
-# create user's personal page first then add login function later
+require_relative 'controllers/pokemon_controller'
 
 
 # creating new account
@@ -31,7 +29,7 @@ end
 
 post '/user/new' do
   create_user(params[:username], params[:email], params[:password])
-  redirect '/user/box'
+  redirect '/'
 end
 
 # login

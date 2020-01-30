@@ -13,6 +13,10 @@ def current_user
     
 end
 
+# def current_pokemon
+#     runs_sql("select * from all_pokemon where id = ")
+# end
+
 def create_user(username, email, password)
   password_digest = BCrypt::Password.create(password)
 
