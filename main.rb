@@ -1,18 +1,15 @@
 require 'sinatra'
+require_relative 'poke_json'
+require_relative 'db/shared'
+require_relative 'models/pokemon'   
+require_relative 'models/user'
+
 if development?
   require 'sinatra/reloader'
   require 'pry'
-  also_reload
+  also_reload 'db/shared'
+  also_reload 'models/pokemon'
 end
-require_relative 'poke_json.rb'
-
-also_reload 'db/shared'
-also_reload 'models/pokemon'
-
-
-require_relative 'db/shared'
-require_relative 'models/pokemon'   
-require_relative 'models/user' 
 
 enable :sessions
 
@@ -26,12 +23,6 @@ require_relative 'controllers/pokemon_controller.rb'
 
 # create user's personal page first then add login function later
 
-# this is for the user's personal page
-get '/user/box' do
-  @pokemon = 
-
-  erb :"userpage/pokemon_box"
-end
 
 # creating new account
 get '/user/new' do

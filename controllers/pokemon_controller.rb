@@ -1,3 +1,4 @@
+# get user pokemon box on user page
 get '/user/box' do
     @pokebox = all_pokemon()
     erb :"userpage/pokemon_box"
