@@ -1,6 +1,7 @@
 # read
 def users_box_pokemon(user_id)
-    sql = "select * from pokebox join all_pokemon on (pokebox.pokemon_id = all_pokemon.id) where user_id = $1;"
+    sql = "select pokebox.id as tid, * from pokebox join all_pokemon on (pokebox.pokemon_id = all_pokemon.id) where user_id = $1;"
+    # select  * from pokebox join all_pokemon on (pokebox.pokemon_id = all_pokemon.id) where user_id = 1;
     # implicit return
     run_sql(sql, [user_id])
 end
@@ -16,7 +17,7 @@ def find_one_pokemon(column, value)
     run_sql(sql, [value])[0]
 end
 
-# add pokemon to box
+# add pokemon to pokebox table
 def add_pokemon(pokemon_id, user_id)
     sql = <<~SQL
       INSERT INTO pokebox
@@ -38,7 +39,7 @@ def add_pokemon(pokemon_id, user_id)
     run_sql(sql, [name, img_url])
   end
   
-  # destroy
+  # delete a pokemon from pokebox table with id(NOT pokemon_id)
   def delete_pokemon(id)
     sql = "delete from pokebox where id = $1;"
     run_sql(sql, [id])

@@ -11,34 +11,62 @@
             background-size: cover;
             height: 100vh;
         }
+        h2 {
+            text-align: center;
+        }
+        .no-bullet {
+            list-style-type: none;
+            padding: 0;
+        }
         .container {
             display: flex;
             flex-direction:column;
+            
             max-width: 400px;
             margin: 0 auto;
             background-color: lightgray;
             border: 2px solid black;
             padding: 20px;
         }
+        .input_fields {
+            margin: 10px;
+            font-size: 14px;
+            padding: 8px;
+            width: 220px;
+
+        }
+        #create-btn {
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Create New Account</h2>
+        <form action="/user/new" method="post">
             <div class="box">
-                <form action="/user/new" method="post">
-                    <label for="username">username</label>
-                    <input type="text" name="username">
-                    <br>
-                    <label for="email">email</label>
-                    <input type="text" name="email">
-                    <br>
-                    <label for="password">password</label>
-                    <input type="password" name="password">
-                    <br>
-                    <button>Create</button>
-                </form>
+            <h2>Create New Account</h2>
+                <ul class="no-bullet">
+                    <li>
+                        <label for="username"></label>
+                        <input type="text" class="input_fields" name="username" placeholder="Username">
+                    </li>
+                    <li>
+                        <label for="email"></label>
+                        <input type="text" class="input_fields" name="email" placeholder="email">
+                    </li>
+                    <li>
+                        <label for="password"></label>
+                        <input type="password" class="input_fields" name="password" placeholder="Password">
+                    </li>
+                    <li>
+                        <button id="create-btn">Create</button>
+                    </li>
+                </ul>
             </div>
+        </form>
     </div>
 </body>
 </html>

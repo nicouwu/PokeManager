@@ -35,14 +35,13 @@
             grid-template-rows: auto;
             grid-row-gap: 10px;
             grid-column-gap: 10px;
-            margin: 20px 100px 20px 100px;
+            margin: 20px 50px 20px 50px;
             padding: 15px;
             box-shadow: 0 0 10px black;
             border-radius: 15px;
         }
         .box {
             display: grid;
-            flex-wrap: wrap;
             border: 1px solid lightgray;
             justify-content: center;
             border-radius: 10px;
@@ -96,10 +95,11 @@
     </header>
 
     <div class="container">
-            <% @pokedex.each_with_index do |pokemon, index| %>
+            <% @pokedex.each do |pokemon| %>
             <div class="box">
-                <a href="pokemon/<%= index %>"><img class="image" src="<%= pokemon["img"] %>"></a>
-                <p class="name"><a href="pokemon/<%= index %>"><%= pokemon["name"] %> </a></p>
+                <a href="pokemon/<%= pokemon["name"] %>"><img class="image" src="<%= pokemon["img"] %>"></a>
+                <p class="name"><a href="pokemon/<%= pokemon["name"] %>"><%= pokemon["name"] %> </a></p>
+                
             </div>
             <% end %>
     </div>

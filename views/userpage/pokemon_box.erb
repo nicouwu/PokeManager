@@ -5,7 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Pokebox</title>
-
+    <style>
+        body {
+            background-color: mistyrose;
+        }
+        p {
+            color: orange;
+            border: 1px solid black;
+            border-radius: 10px;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            background-color: black;
+            opacity: 0.75;
+            height: 15px;
+            font-size: 12px;
+            margin: 0;
+            padding: 2px;
+        }
+        .container {
+            display: flex; 
+            
+            padding: 0; */
+            
+        }
+        .userbox {
+            /* display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background-color: white;
+            justify-content: space-evenly; */
+            /* grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-rows: auto; */
+            flex-grow: 2;
+            background-color: white;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-rows: auto;
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+            margin: 20px 50px 20px 50px;
+            padding: 15px;
+            box-shadow: 0 0 10px black;
+            border-radius: 15px;
+        }
+        .pkmngrid {
+            /* display: grid;
+            justify-content: center;
+            align-content: center;
+            border: 1px solid black; */
+            display: grid;
+            border: 1px solid lightgray;
+            justify-content: center;
+            text-align: center;
+            border-radius: 10px;
+            background-color: lightgray;
+            box-shadow: 0 0 5px orange;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+        .teambox {
+            background-color: lightcyan;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,15 +80,33 @@
             <a href=""></a>
         </nav>
     </header>
-    <h1>My Box</h1>
+    <div class="container">
+        <div class="userbox">
+        
+        <h2>My Box</h2>
+            <% @pokebox.each do |pokemon| %>
+                <div class="pkmngrid">
+                    <p><%= pokemon["name"] %></p>
+                    <a href="/pokemon/<%= pokemon["name"] %>"><img src="<%= pokemon["img_url"] %>"></a>
+                    <div class="buttons">
+                        <form>
+                            <label for=""></label>
+                            <button>Add to Team</button>
+                            
+                        </form>
+                        <form action="/user/box/<%= pokemon["tid"] %>" method="post">
+                            <input type="hidden" name="_method" value ="delete">
+                            <button>delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        
+        <div class="teambox">
+            <p>team</p>
 
-    <div class="box">
-        <% @pokebox.each do |pokemon| %>
-            <p><%= pokemon["name"] %></p>
-            <img src="<%= pokemon["img_url"] %>">
-        <% end %>
+        </div>
     </div>
-    
-
 </body>
 </html>

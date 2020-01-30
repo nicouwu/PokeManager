@@ -10,6 +10,9 @@
     header {
       text-align: center;
     }
+    h1 {
+
+    }
     #login {
       font-size: 12px;
       
@@ -17,25 +20,34 @@
     body{
       font-family: 'Fredoka One', cursive;
     }
+    .logout-btn {
+      float: right;
+      align: right;
+      padding: 3px;
+    }
   </style>
 </head>
 <body>
   <header>
-  <h1><a href="/"><img src="/images/PokeManager_medium.png"></a></h1>
+      <% if logged_in? %>
+    <div class="logout-btn">
+      <%= current_user['username']%>
 
-  <nav>
-      <a href="user/box">My Box</a>
-  </nav>
+      <form action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+      </form>
+    </div>
+    <% end %>
+    <h1><a href="/"><img src="/images/PokeManager_medium.png"></a></h1>
+
+    <nav>
+        
+        <a href="user/box">My Box</a>
+        
+    </nav>
   </header>
-  <% if logged_in? %>
   
-  <%= current_user['username']%>
-
-  <form action="/session" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button>logout</button>
-  </form>
-  <% end %>
   
   <%= yield %>
 
