@@ -7,6 +7,7 @@ require_relative 'models/user'
 if development?
   require 'sinatra/reloader'
   require 'pry'
+  
   also_reload 'db/shared'
   also_reload 'models/pokemon'
 end

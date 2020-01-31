@@ -67,9 +67,7 @@
             display: flex;
             justify-content: center;
         }
-        .teambox {
-            background-color: lightcyan;
-        }
+        
     </style>
 </head>
 <body>
@@ -89,24 +87,20 @@
                     <p><%= pokemon["name"] %></p>
                     <a href="/pokemon/<%= pokemon["name"] %>"><img src="<%= pokemon["img_url"] %>"></a>
                     <div class="buttons">
-                        <form>
+                        <form action="/user/pokemon/<%= pokemon["id"] %>" method="get">
                             <label for=""></label>
-                            <button>Add to Team</button>
+                            <button>Stats</button>
                             
                         </form>
-                        <form action="/user/box/<%= pokemon["tid"] %>" method="post">
+                        <form action="/user/box/<%= pokemon["id"] %>" method="post">
                             <input type="hidden" name="_method" value ="delete">
-                            <button>delete</button>
+                            <button>Delete</button>
                         </form>
                     </div>
                 </div>
             <% end %>
         </div>
         
-        <div class="teambox">
-            <p>team</p>
-
-        </div>
     </div>
 </body>
 </html>

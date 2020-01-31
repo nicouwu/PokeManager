@@ -6,7 +6,9 @@ CREATE TABLE pokebox (
   user_id INTEGER NOT NULL,
   pokemon_id INTEGER NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-  FOREIGN KEY (pokemon_id) REFERENCES all_pokemon (id) ON DELETE CASCADE
+  FOREIGN KEY (pokemon_id) REFERENCES all_pokemon (id) ON DELETE CASCADE,
+  name VARCHAR(200),
+  img_url VARCHAR(500)
 );
 
 -- users info
@@ -23,7 +25,7 @@ CREATE TABLE all_pokemon (
   img_url VARCHAR(500)
 );
 
-CREATE TABLE pokebox (
+CREATE TABLE poketeam (
   id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
   pokemon_id INTEGER NOT NULL,
@@ -31,7 +33,11 @@ CREATE TABLE pokebox (
   FOREIGN KEY (pokemon_id) REFERENCES all_pokemon (id) ON DELETE CASCADE
 );
 
-ALTER TABLE pokebox ADD COLUMN user_id INTEGER;
+ALTER TABLE pokebox ADD COLUMN HP INTEGER,
+ADD COLUMN Attack INTEGER,
+ADD COLUMN Defence INTEGER,
+ADD COLUMN Special INTEGER,
+ADD COLUMN Speed INTEGER;
 
 ALTER TABLE users ADD CONSTRAINT unique_email UNIQUE (email);
 
